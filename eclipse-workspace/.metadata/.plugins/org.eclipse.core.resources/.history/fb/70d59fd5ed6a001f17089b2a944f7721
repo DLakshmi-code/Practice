@@ -1,0 +1,15 @@
+package stepDefinition;
+
+import java.io.IOException;
+
+public class Hooks {
+
+	
+	public void beforeScenario() throws IOException
+	{
+		StepDefinition sd = new StepDefinition();
+		sd.add_place_payload("beforeName","beforeLan","beforeAdd");
+		sd.user_calls_addplace_api_with_post_https_request(
+		
+	}
+}

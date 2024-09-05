@@ -1,0 +1,21 @@
+package practice;
+
+public class australianLights implements lights{
+
+	@Override
+	public void redlight() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void yellowLight() {
+		// TODO Auto-generated method stub
+		
+	}
+	 public void helloAustralia()
+	 {
+		 System.out.println("hello australia");
+	 }
+
+}

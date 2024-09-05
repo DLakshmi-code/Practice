@@ -1,0 +1,9 @@
+
+@tag
+Feature: Validating place API
+ 
+  Scenario: verification if place is added using addPlace API
+    Given add place payload
+    When user calls AddplaceAPI with post https request
+    Then API call is success with status code 200
+    Then "scope" in response body is "APP"

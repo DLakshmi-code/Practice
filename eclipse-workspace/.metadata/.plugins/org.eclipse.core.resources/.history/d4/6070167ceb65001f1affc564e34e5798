@@ -1,0 +1,32 @@
+package ouath;
+
+import io.restassured.RestAssured;
+import pojo.body;
+
+import static io.restassured.RestAssured.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class serialize {
+	
+	public static void main(String args[])
+	{
+		
+		RestAssured.baseURI= "https://rahulshettyacademy.com";
+		body bd = new body();
+		bd.setAccuracy(50);
+		bd.setAddress("29, side layout, cohen 09");
+		bd.setPhone_number("(+91) 983 893 3937");
+		bd.setName("Frontline house");
+		bd.setLanguage("French-IN");
+		String[] typ=new String[2];
+		typ[0]="shop";
+		typ[1]="shop";
+		bd.setTypes(typ);
+		given().queryParam("key","qaclick123").body(args).post("/maps/api/place/add/json")
+		.then().assertThat().statusCode(200).extract().response().asString();
+	}
+
+}

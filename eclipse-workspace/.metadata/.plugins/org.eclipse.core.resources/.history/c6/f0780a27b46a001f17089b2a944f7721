@@ -1,0 +1,74 @@
+package stepDefinition;
+
+import static io.restassured.RestAssured.given;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.filter.log.ResponseLoggingFilter;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
+import static org.junit.Assert.*;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+
+import pojo.body;
+import pojo.location;
+import resources.TestDataBuild;
+import resources.*;
+
+public class StepDefinition extends Utils {
+	RequestSpecification res;
+	ResponseSpecification resp;
+	Response respo;
+	TestDataBuild td =new TestDataBuild();
+
+	@Given("add place payload")
+	
+	public void add_place_payload() throws IOException {
+		
+
+//		
+	 res= given().spec(requestSpecification()).body(td.addPlacePayload());
+		
+	}
+
+	@When("user calls AddplaceAPI with post https request")
+	public void user_calls_addplace_api_with_post_https_request() throws FileNotFoundException {
+
+		 resp = new ResponseSpecBuilder().expectStatusCode(200).build();
+		 respo=res.when().post("/maps/api/place/add/json")
+
+				.then().spec(resp).
+extract().response();
+				
+	}
+
+	@Then("API call is success with status code {int}")
+	public void api_call_is_success_with_status_code(Integer int1) {
+			assertEquals(200, respo.getStatusCode());
+	}
+	
+	@Then("{string} in response body is {string}")
+	public void in_response_body_is(String key, String value) {
+		String response =respo.asString();
+		System.out.println(response);
+		System.out.println("*****response");
+
+		System.out.println(response.toString());
+		JsonPath js = new JsonPath(response);
+      assertEquals(js.get(key).toString(),value);
+	}
+
+
+}

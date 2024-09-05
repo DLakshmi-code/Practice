@@ -1,0 +1,14 @@
+package ouath;
+
+
+//String  = LeadQAAutomation
+//output = a = count of occurence
+		//exclude the repeated characters and share the result
+public class test1 {
+	
+	String s="LeadQAAutomation";
+	
+	for(int i=0;i< )
+
+}
+

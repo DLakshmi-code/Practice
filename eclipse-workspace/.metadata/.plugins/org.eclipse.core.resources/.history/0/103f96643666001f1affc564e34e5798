@@ -1,0 +1,14 @@
+package ouath;
+
+import org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite.StaticMetaMethodSiteNoUnwrapNoCoerce;
+
+import io.restassured.builder.RequestSpecBuilder;
+
+public class Ecommerce {
+	
+	public static void main(String args[])
+	{
+		new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com/api/ecom/auth/login")
+	}
+
+}

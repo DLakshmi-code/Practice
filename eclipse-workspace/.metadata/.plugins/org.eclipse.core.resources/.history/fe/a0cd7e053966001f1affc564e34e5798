@@ -1,0 +1,31 @@
+package ouath;
+
+import org.codehaus.groovy.runtime.callsite.StaticMetaMethodSite.StaticMetaMethodSiteNoUnwrapNoCoerce;
+
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
+import pojo.Login;
+import static io.restassured.RestAssured.*;
+
+public class Ecommerce {
+	
+	public static void main(String args[])
+	{
+		RequestSpecification req=new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
+		.setContentType(ContentType.JSON).build();
+		
+		Login loginRequest= new Login();
+				
+				loginRequest.setUserEmail("rahulsharma@gmail.com");
+				loginRequest.setPassword("Cover@123");
+				
+				RequestSpecification reqLogin=	given().spec(req).body(loginRequest);
+				
+				
+				reqLogin.when().post("/api/ecom/auth/login").
+	}
+	
+	
+
+}

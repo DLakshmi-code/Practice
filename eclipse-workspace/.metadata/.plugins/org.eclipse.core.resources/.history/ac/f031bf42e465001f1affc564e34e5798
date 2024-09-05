@@ -1,0 +1,18 @@
+package ouath;
+
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
+
+
+public class serialize {
+	
+	public static void main(String args[])
+	{
+		
+		RestAssured.baseURI= "https://rahulshettyacademy.com";
+		String resp=
+		given().queryParam("key","qaclick123").body(args).post("/maps/api/place/add/json")
+		.then().assertThat().statusCode(200).extract().response().asString();
+	}
+
+}

@@ -1,0 +1,31 @@
+package resources;
+
+import pojo.body;
+import pojo.location;
+
+public class TestDataBuild {
+	
+	public body addPlacePayload()
+	{
+		body bd = new body();
+		bd.setAccuracy(50);
+		bd.setAddress("29, side layout, cohen 09");
+		bd.setPhone_number("(+91) 983 893 3937");
+		bd.setName("Frontline house");
+		bd.setLanguage("French-IN");
+		
+		String[] typ=new String[2];
+		typ[0]="shop";
+		typ[1]="shop";
+		bd.setTypes(typ);
+		
+		location loc = new location();
+		loc.setLat(-38.383494);
+		loc.setLng(33.427362);
+
+		bd.setLocation(loc);	
+		
+		return bd;
+	}
+
+}

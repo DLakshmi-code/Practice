@@ -1,0 +1,15 @@
+package pojo;
+
+public class orders {
+	
+	private details[] detail;
+
+	public details[] getDetail() {
+		return detail;
+	}
+
+	public void setDetail(details[] detail) {
+		this.detail = detail;
+	}
+
+}

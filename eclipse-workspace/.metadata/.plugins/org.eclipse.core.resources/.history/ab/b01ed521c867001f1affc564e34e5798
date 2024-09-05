@@ -1,0 +1,22 @@
+package practice;
+
+public class canadaLights implements lights {
+
+	public static void main(String[] args) {
+
+		canadaLights cl = new canadaLights();
+		cl.redlight();
+	}
+
+	@Override
+	public void redlight() {
+		System.out.println("red light");
+	}
+
+	@Override
+	public void yellowLight() {
+		System.out.println("yellow light");
+		
+	}
+
+}
